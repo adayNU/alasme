@@ -6,7 +6,7 @@ class IndexController < ApplicationController
 
   def show
     # if iMessage return mp4 instead of gif
-    link_type = (USER_AGENT_REGEX.match(request.user_agent) ? "image_mp4_url" : "image_url")
+    link_type = (USER_AGENT_REGEX.match(request.user_agent) ? "url" : "image_url")
 
     url = "#{BASE_URL}/#{ENDPOINT}?tag=#{GIF_TAG}&api_key=#{API_KEYS["giphy"]["key"]}"
     result = RestClient.get(url)
